@@ -1,14 +1,22 @@
 <h2><%= @list.name %></h2>
 
-<ul>
+<div class="container">
+
   <% @list.bookmarks.each do |bookmark| %>
-    <li><%= "#{bookmark.movie.title}" %></li>
-    <li><%= "#{bookmark.movie.overview}" %></li>
-    <li><%= "#{bookmark.movie.rating}" %></li>
-    <li><%= "#{bookmark.comment}" %></li>
-    <%= link_to "Delete", bookmark_path(bookmark.id), method: :delete, data: { confirm: "Are you sure?" } %>
+    <div class="card-trip">
+      <img src="<%= bookmark.movie.poster_url %>" />
+      <div class="card-trip-infos">
+        <div>
+          <h2><%= "#{bookmark.movie.title}" %></h2>
+          <p><%= "#{bookmark.movie.overview}" %></p>
+          <p><%= "#{bookmark.comment}" %></p>
+        </div>
+        <h2 class="card-trip-pricing"><%= "#{bookmark.movie.rating}" %></h2>
+      </div>
+    </div>
   <% end %>
-</ul>
+</div>
+
 
 <%= link_to 'Add a movie', new_list_bookmark_path(@list) %>
 
