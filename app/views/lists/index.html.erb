@@ -1,6 +1,6 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80);">
   <div class="container">
-    <h1>Our Movie Theatre brings <strong>emotions</strong> to <strong>bored people</strong>!</h1>
+    <h1>Our Movie Theatre App brings <strong>emotions</strong> to <strong>bored people</strong>!</h1>
     <p>Bookmark and rate your favourite films <strong>NOW</strong> </p>
     <a class="btn btn-primary mt-5" href="<%= new_list_path %>" role="button">Add a new list</a>
   </div>
@@ -14,8 +14,10 @@
         <a href="<%= list_path(id: list.id) %>" class="list-list">
           <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path list.photo.key, height: 300, crop: :fill %>')">
             <div class="card-options">
-              <div class="list-title"><%= list.name %></div>
-              <div class="delete-link"><%= link_to "Delete", list_path(list), method: :delete, data: { confirm: "Are you sure?" }%></div>
+              <div class="list-title"><p><%= list.name %></p></div>
+              <div class="delete-link">
+                <%# <p><%= link_to "Delete", list_path(list), method: :delete, data: { confirm: "Are you sure?" }%></p>
+              </div>
             </div>
           </div>
         </a>
