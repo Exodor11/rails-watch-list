@@ -1,7 +1,11 @@
 // Specific CSS for your home-page
 .watch-list {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
   grid-area: auto;
   grid-gap: 20px;
+}
+
+.card-options {
+  display: inline-flex;
 }

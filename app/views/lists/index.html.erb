@@ -2,29 +2,29 @@
   <div class="container">
     <h1>Our Movie Theatre brings <strong>emotions</strong> to <strong>bored people</strong>!</h1>
     <p>Bookmark and rate your favourite films <strong>NOW</strong> </p>
-    <a class="btn btn-flat" href="#">Apply now</a>
+    <a class="btn btn-primary mt-5" href="<%= new_list_path %>" role="button">Add a new list</a>
   </div>
 </div>
 
 
-
-
 <div class="container mt-5">
-  <h2>My lists</h2>
   <div class="watch-list mt-3">
-
     <% @lists.each do |list| %>
       <% if list.photo.attached? %>
         <a href="<%= list_path(id: list.id) %>" class="list-list">
           <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path list.photo.key, height: 300, crop: :fill %>')">
-          <%= list.name %></div>
+            <div class="card-options">
+              <div class="list-title"><%= list.name %></div>
+              <%# <div class="delete-link"><%= link_to "Delete", list_path(list), method: :delete, data: { confirm: "Are you sure?" }</div> %>
+            </div>
+          </div>
         </a>
       <% end %>
 
     <% end %>
 
   </div>
-  <a class="btn btn-primary mt-5" href="<%= new_list_path %>" role="button">Add a new list</a>
+  <a class="btn btn-primary mt-5 mb-5" href="<%= new_list_path %>" role="button">Add a new list</a>
 </div>
 
 

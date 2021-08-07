@@ -1,5 +1,8 @@
-<%= simple_form_for [ @list ] do |f| %>
-  <%= f.input :name %>
-  <%= f.input :photo, as: :file %>
-  <%= f.submit "Submit" %>
-<% end %>
+<div class="container">
+  <%= simple_form_for [ @list ], :html => { :class => 'form-vertical' } do |f| %>
+    <%= f.input :name %>
+    <%= f.input :photo, as: :file %>
+    <%= f.submit "Submit" %>
+  <% end %>
+</div>
+

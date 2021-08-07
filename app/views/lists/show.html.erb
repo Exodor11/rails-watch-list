@@ -1,31 +1,27 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= cl_image_path @list.photo.key %>);">
   <div class="container">
     <h1><%= @list.name %></h1>
-    <a class="btn btn-flat" href="<%= new_list_bookmark_path(@list) %>">Add a movie</a>
+    <a class="btn btn-primary mt-5" href="<%= new_list_bookmark_path(@list) %>" role="button">Add a movie</a>
   </div>
 </div>
 
-
-<h2><%= @list.name %></h2>
-
-<div class="container">
-
-  <% @list.bookmarks.each do |bookmark| %>
-    <div class="card-trip">
-      <img src="<%= bookmark.movie.poster_url %>" />
-      <div class="card-trip-infos">
-        <div>
-          <h2><%= "#{bookmark.movie.title}" %></h2>
-          <p><%= "#{bookmark.movie.overview}" %></p>
-          <p><%= "#{bookmark.comment}" %></p>
+<div class="container mt-5">
+  <div class="movie-list mt-3">
+    <% @list.bookmarks.each do |bookmark| %>
+      <div class="card-trip">
+        <img src="<%= bookmark.movie.poster_url %>" />
+        <div class="card-trip-infos">
+          <div>
+            <h2><%= "#{bookmark.movie.title}" %></h2>
+            <p><%= "#{bookmark.movie.overview}" %></p>
+            <p><i class="fas fa-quote-left"></i><strong> <%= "#{bookmark.comment}" %> </strong><i class="fas fa-quote-right"></i></p>
+            <p><i class="far fa-times-circle"></i><%= link_to " Delete", bookmark_path(bookmark), method: :delete, data: { confirm: "Are you sure?" } %></p>
+          </div>
+          <h2 class="card-trip-pricing"><%= "#{bookmark.movie.rating}" %><i class="fas fa-star"></i></h2>
         </div>
-        <h2 class="card-trip-pricing"><%= "#{bookmark.movie.rating}" %></h2>
       </div>
-    </div>
-  <% end %>
+    <% end %>
+  
+  </div>
+  <a class="btn btn-primary mt-5 mb-5" href="<%= lists_path %>" role="button">Back to lists</a>
 </div>
-
-
-<%= link_to 'Add a movie', new_list_bookmark_path(@list) %>
-
-<%= link_to "Back to lists", lists_path %>
