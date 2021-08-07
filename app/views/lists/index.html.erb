@@ -15,7 +15,7 @@
           <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path list.photo.key, height: 300, crop: :fill %>')">
             <div class="card-options">
               <div class="list-title"><%= list.name %></div>
-              <%# <div class="delete-link"><%= link_to "Delete", list_path(list), method: :delete, data: { confirm: "Are you sure?" }</div> %>
+              <div class="delete-link"><%= link_to "Delete", list_path(list), method: :delete, data: { confirm: "Are you sure?" }</div>
             </div>
           </div>
         </a>
